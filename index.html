@@ -39,8 +39,32 @@
 
 const hero = document.querySelector('.hero');
 const text = document.querySelector('h1');
+const walk = 100; // 100 px so shadow goes from -50px to 50px
 
 
+
+function shadow(e){
+    const width = hero.offsetWidth;
+    const height = hero.offsetHeight;
+
+    let x = e.offsetX;
+    let y = e.offsetY;
+
+    if (this !== e.target){ //If someone hovers over the text/emoji we add the distance from left/top to the object + the couple of pixels inside that object
+        x = x + e.target.offsetLeft;
+        y = y + e.target.offsetTop;
+    }
+
+  
+    
+    const xwalk = Math.round((x / width * walk) - (walk / 2));
+    const ywalk = Math.round((y / height * walk) - (walk / 2));
+
+    console.log(xwalk, ywalk);
+}
+
+
+hero.addEventListener('mousemove',shadow);
 
 </script>
 </body>
