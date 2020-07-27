@@ -62,7 +62,12 @@ function shadow(e){
 
     console.log(xWalk, yWalk);
 
-    text.style.textShadow = `${xWalk}px ${yWalk}px 0 turquoise`;
+
+    const blueHue = (xWalk / 50) * 255;
+
+    const greenHue = (yWalk / 50) * 255;
+
+    text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(0, ${greenHue}, ${blueHue}, 0.7)`;
 }
 
 
