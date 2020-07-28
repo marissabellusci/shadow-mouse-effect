@@ -92,15 +92,15 @@ hero.addEventListener('mousemove',shadow);
 
 let isMobile = false;
 
-if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
  isMobile = true;
 }
 
-if (isMobile){
+if (isMobile && document.visibilityState){
   text.textContent = '🔥Mobile!'
     window.addEventListener('deviceorientation', handleOrientation);}
 
- 
+ //NOT WORKING ON IPHONE 5, will test on google pixel
 
 
 
