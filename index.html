@@ -64,7 +64,6 @@ function shadow(e){
 
 
     const blueHue = (xWalk / 50) * 255;
-
     const greenHue = (yWalk / 50) * 255;
 
     text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(0, ${greenHue}, ${blueHue}, 0.7)`;
@@ -72,8 +71,24 @@ function shadow(e){
 
 
 
-
 hero.addEventListener('mousemove',shadow);
+
+//BELOW CODE IS FOR MOBILE-SUPPORTED TILT MOVEMENT
+
+function handleOrientation(e) {
+  const absolute = e.absolute;
+  const alpha    = e.alpha;
+  const beta     = e.beta;
+  const gamma    = e.gamma;
+
+  const tiltedBlueHue = (gamma / 90) * 255
+  const tiltedGreenHue = (beta / 180) * 255
+
+text.style.textShadow = `${gamma}px ${beta}px 0 rgba(0, ${tiltedGreenHue}, ${tiltedBlueHue}, 0.7)`;
+
+}
+
+window.addEventListener('deviceorientation', handleOrientation);
 
 </script>
 </body>
