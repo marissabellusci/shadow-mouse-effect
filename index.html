@@ -71,7 +71,7 @@ function shadow(e){
 
 
 
-hero.addEventListener('mousemove',shadow);
+
 
 //BELOW CODE IS FOR MOBILE-SUPPORTED TILT MOVEMENT
 
@@ -88,7 +88,17 @@ text.style.textShadow = `${gamma}px ${beta}px 0 rgba(0, ${tiltedGreenHue}, ${til
 
 }
 
-window.addEventListener('deviceorientation', handleOrientation);
+// JS media query
+const mq = window.matchMedia('@media all and (max-width: 700px)');
+if(mq.matches) {
+    // the width of browser is more then 700px
+    window.addEventListener('deviceorientation', handleOrientation);
+} else {
+    // the width of browser is less then 700px
+    hero.addEventListener('mousemove',shadow);
+}
+
+
 
 </script>
 </body>
