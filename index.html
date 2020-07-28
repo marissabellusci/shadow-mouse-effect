@@ -88,8 +88,14 @@ text.style.textShadow = `${gamma}px ${beta}px 0 rgba(0, ${tiltedGreenHue}, ${til
 
 }
 
+const isMobile = false;
 
-    window.addEventListener('deviceorientation', handleOrientation);
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+ isMobile = true;
+}
+
+if (isMobile){
+    window.addEventListener('deviceorientation', handleOrientation);}
 
     hero.addEventListener('mousemove',shadow);
 
